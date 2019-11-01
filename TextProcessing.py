@@ -51,7 +51,8 @@ import re
 def preprocess_content(content):
    # makes a copy of the "self.content"
    clean_content = content[:]
-   clean_content= clean_content.lower()  # converts everything to lowercase
+   clean_content= clean_content.lower() # converts everything to lowercase
+   cc= clean_content
    #cc= clean_content.split('.') #splits the text wherever there's a period
    #cc = (" ".join(cc))  #joins the text and replaces the periods with spaces
    cc = re.findall(r'[A-Za-z ]', clean_content) #now clean_content only includes alphabets and spaces
