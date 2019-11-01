@@ -102,15 +102,27 @@ def get_set_of_unique_words(clean_content):
 
    return unique_word_set
 
-
 def get_useful_words(clean_content, stop_words):
-   # works on self.clean_content
-   # returns list of NON-stopwords (see Stopwords.txt under Support_files folder)
-   useful_word_list = []
-   for word in get_set_of_unique_words(clean_content):
-       if word not in stop_words:
-           useful_word_list.append(word)  #adds each word to useful_word_list
-   return useful_word_list
+  # works on self.clean_content
+  # returns list of NON-stopwords (see Stopwords.txt under Support_files folder)
+  useful_word_list = []
+  for word in get_set_of_unique_words(clean_content):
+      if word not in stop_words:
+          useful_word_list.append(word)
+  return useful_word_list
+
+def get_dictionary_of_useful_words(clean_content, stop_words):
+   # getting useful words
+    useful_words = get_useful_words(clean_content, stop_words)
+    # creating a dictionary of useful words
+    useful_words_dict = {}
+    for word in useful_words:
+        if word not in useful_words_dict:
+            useful_words_dict[word] = 1
+        else:
+            useful_words_dict[word] = useful_words_dict[word] + 1
+    return useful_words_dict
+# Make sure you have sort_input.txt in the same folder
 
 
 def get_keywords(clean_content,stop_words):
@@ -118,7 +130,7 @@ def get_keywords(clean_content,stop_words):
     # makes use of useful words in the word dictionary
     # returns a list of UPTO 6 most frequent NON-stopwords words (see Stopwords.txt)
     possible_keywords = []  # dummy assignment
-    dictionary= get_sorted_dict(clean_content) #getting words from get_sorted_dict
+    dictionary= get_dictionary_of_useful_words(clean_content,stop_words) #getting words from get_sorted_dict
     for word in dictionary:
         if word not in stop_words:
             possible_keywords.append(word)
@@ -191,7 +203,7 @@ if __name__ == "__main__":
                 encoding="utf8")
     stop_words = file.read()
 
-    input_file_name = "large_input.txt"
+    input_file_name = "short_input.txt"
     file = open(os.path.join(os.getcwd(), input_file_name), 'r', encoding="utf8")  # Opening the file
     file_raw_content = file.read()  # Reading the file, content will be a string
     print(file_raw_content)  # comment this line if you dont want to see the content

@@ -23,6 +23,7 @@ def get_freq_dict(s):
             d[c] += 1
     return d
 
+
 if __name__ == "__main__":
     aplha_dict = get_freq_dict(file_content)
     print(aplha_dict)
