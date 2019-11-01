@@ -30,8 +30,8 @@ Remember
     Criticize yourself first
     Slow down
 
-<Member1 name: >
-<Member2 name: >
+<Member1 name: Marisleysis De La Cruz >
+<Member2 name: Tazkia Afra >
 
 Problem: implement some text processing functions
 Allowed: You can use anything that is supplied to you with Python 3.7
