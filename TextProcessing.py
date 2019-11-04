@@ -203,7 +203,7 @@ if __name__ == "__main__":
                 encoding="utf8")
     stop_words = file.read()
 
-    input_file_name = "short_input.txt"
+    input_file_name = "large_input.txt"
     file = open(os.path.join(os.getcwd(), input_file_name), 'r', encoding="utf8")  # Opening the file
     file_raw_content = file.read()  # Reading the file, content will be a string
     print(file_raw_content)  # comment this line if you dont want to see the content
